@@ -1,46 +1,8 @@
-# JS/TSX 与 Android 真实视图层级对照
-
-把 `App.tsx` 里 `ACTIVE_REGION` 设为 `'A'` / `'B'` / `'C'` / `'D'` 后分别运行，用 Layout Inspector 或 `uiautomator dump` 拿到对应区的原生 View 树，粘贴到下面「真实 Android 视图」的代码块里即可对照。
-
----
-
-## 公共外层（各区共用）
-
-当前入口渲染的是：`SafeAreaProvider` → `AppContent`（`View` + `ScrollView` + 若干子节点），再根据 `ACTIVE_REGION` 只渲染其中一个区块。
-
-**JS 结构（公共部分）：**
-
-```tsx
-<SafeAreaProvider>
-  <StatusBar />
-  <AppContent>   {/* 即下面的 View + ScrollView + ... */}
-    <View style={styles.container}>
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.pageTitle}>Fabric 调试用例aaaaa</Text>
-        <Text style={styles.hint}>Layout Inspector → ...</Text>
-        {/* 下面仅渲染 ACTIVE_REGION 对应的一块 */}
-        {renderRegion()}
-        <Text style={styles.footer}>对照 FABRIC_DEBUG_LEARNING.md...</Text>
-      </ScrollView>
-    </View>
-  </AppContent>
-</SafeAreaProvider>
-```
-
-**真实 Android 视图（从 ReactSurfaceView 往下，公共部分可只贴一次）：**
-
-```
-（此处粘贴：SafeAreaProvider / ReactScrollView 等公共节点的原生层级，可选）
-```
-
----
-
 ## 区 A：可打平（5 层空 View）
 
 **JS 结构：**
 
 ```tsx
-<Text style={styles.regionLabel}>A. 可打平（5 层空 View）</Text>
 <View style={styles.block}>
   <View>
     <View>
@@ -59,11 +21,14 @@
 **真实 Android 视图：**
 
 ```
-（此处粘贴 Layout Inspector / uiautomator 中区 A 对应的 View 层级）
+                    com.facebook.react.views.scroll.ReactScrollView{89601c8 VFED.V... ........ 0,0-1080,2400 #80}
+                      com.facebook.react.views.view.ReactViewGroup{519e261 V.E...... ........ 0,0-1080,306 #7e}
+                        com.facebook.react.views.view.ReactViewGroup{7052186 V.E...... ........ 42,42-1038,201 #7c}
+                        com.facebook.react.views.view.ReactViewGroup{10a4a47 V.E...... ........ 74,74-1007,170 #72}
+                        com.facebook.react.views.text.ReactTextView{ded7274 V.ED..... ........ 95,95-986,149 #70}
 ```
 
 **分析（为什么真实视图是这样）：**  
-JS 里是 1 个带样式的 block View + 4 层「空」View（无 style、无事件、无 collapsable=false）+ 1 个带样式的 inner View + Text。Fabric 的视图打平会把「仅做布局、无绘制/无交互」的中间层合并掉，只保留有样式的节点和叶子（如 Text）。因此原生树里通常只会看到：对应 block 的 ReactViewGroup、对应 inner 的 ReactViewGroup、以及 ReactTextView，中间 4 层空 View 不会一一对应成 4 个原生 View，层级更扁、节点更少。
 
 ---
 
@@ -72,7 +37,6 @@ JS 里是 1 个带样式的 block View + 4 层「空」View（无 style、无事
 **JS 结构：**
 
 ```tsx
-<Text style={styles.regionLabel}>B. 不可打平（中间层 collapsable=false）</Text>
 <View style={styles.block}>
   <View>
     <View collapsable={false}>
