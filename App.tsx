@@ -22,7 +22,7 @@ const SHOW_FLATTENING_DEMO = false;
 type FlatteningRegion = 'A' | 'B' | 'C' | 'D';
 
 // 只改这里：一次只展示一个实验区。
-const ACTIVE_REGION: FlatteningRegion = 'A';
+const ACTIVE_REGION: FlatteningRegion = 'D';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';

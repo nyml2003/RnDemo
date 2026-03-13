@@ -48,7 +48,7 @@ TASK null id=2 userId=0 displayId=0(type=INTERNAL)
         
     Choreographer:
       mFrameScheduled=false
-      mLastFrameTime=1142483 (1264016 ms ago)
+      mLastFrameTime=1142483 (1324662 ms ago)
     InsetsController:
         InsetsState
           mDisplayFrame=Rect(0, 0 - 1080, 2400)
@@ -824,7 +824,7 @@ TASK 10229:com.rndemo id=53 userId=0 displayId=0(type=INTERNAL)
         
     Choreographer:
       mFrameScheduled=true
-      mLastFrameTime=2406499 (5 ms ago)
+      mLastFrameTime=2467132 (17 ms ago)
     InsetsController:
         InsetsState
           mDisplayFrame=Rect(0, 0 - 1080, 2400)
@@ -866,17 +866,18 @@ TASK 10229:com.rndemo id=53 userId=0 displayId=0(type=INTERNAL)
               androidx.appcompat.widget.ContentFrameLayout{8cd5558 V.E...... ........ 0,0-1080,2400 #1020002 android:id/content}
                 com.facebook.react.runtime.ReactSurfaceView{97e56b1 V.E...... ........ 0,0-1080,2400 #1}
                   com.th3rdwave.safeareacontext.SafeAreaProvider{fe0f62 V.E...... ........ 0,0-1080,2400 #2}
-                    com.facebook.react.views.scroll.ReactScrollView{89601c8 VFED.V... ........ 0,0-1080,2400 #80}
-                      com.facebook.react.views.view.ReactViewGroup{519e261 V.E...... ........ 0,0-1080,306 #7e}
-                        com.facebook.react.views.view.ReactViewGroup{7052186 V.E...... ........ 42,42-1038,201 #7c}
-                        com.facebook.react.views.view.ReactViewGroup{10a4a47 V.E...... ........ 74,74-1007,170 #72}
-                        com.facebook.react.views.text.ReactTextView{ded7274 V.ED..... ........ 95,95-986,149 #70}
+                    com.facebook.react.views.scroll.ReactScrollView{d7f02bf VFED.V... ........ 0,0-1080,2400 #ba}
+                      com.facebook.react.views.view.ReactViewGroup{a48d8c V.E...... ........ 0,0-1080,306 #b8}
+                        com.facebook.react.views.view.ReactViewGroup{f791cd5 V.E...... ........ 42,42-1038,201 #b6}
+                        com.facebook.react.views.view.ReactViewGroup{f185cea V.E...... ........ 74,74-1007,170 #b0}
+                        com.facebook.react.views.text.ReactTextView{ab0bdb V.ED..... ........ 95,95-986,149 #ae}
                   com.facebook.react.views.view.ReactViewGroup{eae60dc V.E...... ........ 0,0-1080,2400 #8}
                     com.facebook.react.views.debuggingoverlay.DebuggingOverlay{7ea75e5 V.ED..... ........ 0,0-1080,2400 #6}
     Looper (main, tid 2) {f3964ff}
       (MessageQueue is using Legacy implementation)
-      Message 0: { when=+544ms callback=android.view.View$ScrollabilityCache target=android.view.ViewRootImpl$ViewRootHandler async=false heapIndex=-1 }
-      (Total messages: 1, polling=false, quitting=false)
+      Message 0: { when=0 what=40 target=android.view.ViewRootImpl$ViewRootHandler async=false heapIndex=-1 }
+      Message 1: { when=+833ms callback=android.view.View$ScrollabilityCache target=android.view.ViewRootImpl$ViewRootHandler async=false heapIndex=-1 }
+      (Total messages: 2, polling=false, quitting=false)
     ResourcesManager:
       total apks: 7
       resources: 3

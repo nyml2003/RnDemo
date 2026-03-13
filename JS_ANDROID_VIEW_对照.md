@@ -53,7 +53,12 @@
 **真实 Android 视图：**
 
 ```
-（此处粘贴区 B 对应的 View 层级）
+                    com.facebook.react.views.scroll.ReactScrollView{77c6fc3 VFED.V... ........ 0,0-1080,2400 #94}
+                      com.facebook.react.views.view.ReactViewGroup{ddb3040 V.E...... ........ 0,0-1080,306 #92}
+                        com.facebook.react.views.view.ReactViewGroup{873b79 V.E...... ........ 42,42-1038,201 #90}
+                        com.facebook.react.views.view.ReactViewGroup{64960be V.E...... ........ 74,74-1007,170 #8c}
+                          com.facebook.react.views.view.ReactViewGroup{9ac451f V.E...... ........ 0,0-933,96 #88}
+                          com.facebook.react.views.text.ReactTextView{63106c V.ED..... ........ 21,21-912,75 #86}
 ```
 
 **分析（为什么真实视图是这样）：**  
@@ -83,7 +88,11 @@
 **真实 Android 视图：**
 
 ```
-（此处粘贴区 C 对应的 View 层级）
+                    com.facebook.react.views.scroll.ReactScrollView{422caf6 VFED.V... ........ 0,0-1080,2400 #a8}
+                      com.facebook.react.views.view.ReactViewGroup{ceb8ef7 V.E...... ........ 0,0-1080,306 #a6}
+                        com.facebook.react.views.view.ReactViewGroup{fe55164 V.E...... ........ 42,42-1038,201 #a4}
+                        com.facebook.react.views.view.ReactViewGroup{ac84fcd V.E...... ........ 74,74-1007,170 #9c}
+                        com.facebook.react.views.text.ReactTextView{528a082 V.ED..... ........ 95,95-986,149 #9a}
 ```
 
 **分析（为什么真实视图是这样）：**  
@@ -111,7 +120,11 @@
 **真实 Android 视图：**
 
 ```
-（此处粘贴区 D 对应的 View 层级）
+                    com.facebook.react.views.scroll.ReactScrollView{d7f02bf VFED.V... ........ 0,0-1080,2400 #ba}
+                      com.facebook.react.views.view.ReactViewGroup{a48d8c V.E...... ........ 0,0-1080,306 #b8}
+                        com.facebook.react.views.view.ReactViewGroup{f791cd5 V.E...... ........ 42,42-1038,201 #b6}
+                        com.facebook.react.views.view.ReactViewGroup{f185cea V.E...... ........ 74,74-1007,170 #b0}
+                        com.facebook.react.views.text.ReactTextView{ab0bdb V.ED..... ........ 95,95-986,149 #ae}
 ```
 
 **分析（为什么真实视图是这样）：**  
