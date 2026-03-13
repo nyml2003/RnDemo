@@ -1,0 +1,32 @@
+    View Hierarchy:
+      com.android.internal.policy.DecorView{73debe V.E...... R....... 0,0-1080,2400 aid=0}[MainActivity]
+        android.widget.LinearLayout{427eb1f V.E...... ........ 0,0-1080,2400}
+          android.view.ViewStub{79cbe6c G.E...... ......I. 0,0-0,0 #10201e9 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{34a2c35 V.E...... ........ 0,0-1080,2400}
+            androidx.appcompat.widget.FitWindowsLinearLayout{60b28ca V.E...... ........ 0,0-1080,2400 #7f080036 app:id/action_bar_root}
+              androidx.appcompat.widget.ViewStubCompat{f6a1a3b G.E...... ......I. 0,0-0,0 #7f080041 app:id/action_mode_bar_stub}
+              androidx.appcompat.widget.ContentFrameLayout{8cd5558 V.E...... ........ 0,0-1080,2400 #1020002 android:id/content}
+                com.facebook.react.runtime.ReactSurfaceView{97e56b1 V.E...... ........ 0,0-1080,2400 #1}
+                  com.th3rdwave.safeareacontext.SafeAreaProvider{71b0796 V.E...... ........ 0,0-1080,2400 #2}
+                    com.facebook.react.views.scroll.ReactScrollView{6d61f17 VFED.V... ........ 0,0-1080,2400 #64}
+                      com.facebook.react.views.view.ReactViewGroup{96e6f04 V.E...... ........ 0,0-1080,1823 #62}
+                        com.facebook.react.views.text.ReactTextView{af0aced V.ED..... ........ 42,42-1038,112 #e}
+                        com.facebook.react.views.text.ReactTextView{9780722 V.ED..... ........ 42,154-1038,246 #12}
+                        com.facebook.react.views.text.ReactTextView{9395b3 V.ED..... ........ 42,319-1038,373 #16}
+                        com.facebook.react.views.view.ReactViewGroup{1e57770 V.E...... ........ 42,416-1038,575 #26}
+                        com.facebook.react.views.view.ReactViewGroup{9b82ae9 V.E...... ........ 74,448-1007,544 #1c}
+                        com.facebook.react.views.text.ReactTextView{9b3736e V.ED..... ........ 95,469-986,523 #1a}
+                        com.facebook.react.views.text.ReactTextView{3a7da0f V.ED..... ........ 42,658-1038,712 #2a}
+                        com.facebook.react.views.view.ReactViewGroup{9829a9c V.E...... ........ 42,755-1038,914 #3a}
+                        com.facebook.react.views.view.ReactViewGroup{85f8ca5 V.E...... ........ 74,787-1007,883 #36}
+                          com.facebook.react.views.view.ReactViewGroup{a27587a V.E...... ........ 0,0-933,96 #30}
+                          com.facebook.react.views.text.ReactTextView{812082b V.ED..... ........ 21,21-912,75 #2e}
+                        com.facebook.react.views.text.ReactTextView{a6cc488 V.ED..... ........ 42,997-1038,1051 #3e}
+                        com.facebook.react.views.view.ReactViewGroup{d614e21 V.E...... ........ 42,1094-1038,1253 #4c}
+                        com.facebook.react.views.view.ReactViewGroup{6c28246 V.E...... ........ 74,1126-1007,1222 #44}
+                        com.facebook.react.views.text.ReactTextView{ca6fc07 V.ED..... ........ 95,1147-986,1201 #42}
+                        com.facebook.react.views.text.ReactTextView{84da134 V.ED..... ........ 42,1336-1038,1390 #50}
+                        com.facebook.react.views.view.ReactViewGroup{263ab5d V.E...... ........ 42,1432-1038,1591 #5c}
+                        com.facebook.react.views.view.ReactViewGroup{9947cd2 V.E...... ........ 74,1464-1007,1560 #56}
+                        com.facebook.react.views.text.ReactTextView{ead51a3 V.ED..... ........ 95,1485-986,1539 #54}
+                        com.facebook.react.views.text.ReactTextView{5bd9ca0 V.ED..... ........ 42,1675-1038,1718 #60}

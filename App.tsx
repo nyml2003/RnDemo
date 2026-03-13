@@ -11,7 +11,7 @@ import { ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'r
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FabricLearningDemo } from './FabricLearningDemo';
 import { ViewFlatteningDemo } from './ViewFlatteningDemo';
-import { SharedViewFlatteningDemo } from 'shared-rn-demos';
+
 
 // 改为 true 进入「Fabric 学习 Demo」：在 FabricLearningDemo.tsx 里改 FABRIC_LEARNING_STEP = 1~7 切换步骤
 const USE_FABRIC_LEARNING_DEMO = false;
@@ -19,6 +19,10 @@ const USE_FABRIC_LEARNING_DEMO = false;
 const USE_SHARED_FLATTENING_DEMO = false;
 // 改为 true 可调试「视图打平」：用 Layout Inspector 看原生 View 层级
 const SHOW_FLATTENING_DEMO = false;
+type FlatteningRegion = 'A' | 'B' | 'C' | 'D';
+
+// 只改这里：一次只展示一个实验区。
+const ACTIVE_REGION: FlatteningRegion = 'D';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -40,7 +44,6 @@ function App() {
     return (
       <SafeAreaProvider>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <SharedViewFlatteningDemo />
       </SafeAreaProvider>
     );
   }
@@ -66,62 +69,69 @@ function App() {
  * 用 Layout Inspector 连接后，在 Component Tree 里对比各区的原生 View 数量。
  */
 function AppContent() {
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.pageTitle}>Fabric 调试用例</Text>
-        <Text style={styles.hint}>
-          Layout Inspector → 选 RnDemo → 看下面四块在 Component Tree 里的节点数
-        </Text>
-
-        {/* 区 A：可打平 — 多层「空」View，无 style/无事件，Fabric 会合并 */}
-        <Text style={styles.regionLabel}>A. 可打平（5 层空 View）</Text>
-        <View style={styles.block}>
-          <View>
+  const renderRegion = () => {
+    if (ACTIVE_REGION === 'A') {
+      return (
+        <>
+          {/* 区 A：可打平 — 多层「空」View，无 style/无事件，Fabric 会合并 */}
+          <View style={styles.block}>
             <View>
               <View>
                 <View>
-                  <View style={styles.inner}>
-                    <Text>A：嵌套 5 层空 View</Text>
+                  <View>
+                    <View style={styles.inner}>
+                      <Text>A：嵌套 5 层空 View</Text>
+                    </View>
                   </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
+        </>
+      );
+    }
 
-        {/* 区 B：不可打平 — 中间一层 collapsable={false}，该层会保留 */}
-        <Text style={styles.regionLabel}>B. 不可打平（中间层 collapsable=false）</Text>
-        <View style={styles.block}>
-          <View>
-            <View collapsable={false}>
-              <View>
+    if (ACTIVE_REGION === 'B') {
+      return (
+        <>
+          {/* 区 B：不可打平 — 中间一层 collapsable={false}，该层会保留 */}
+          <View style={styles.block}>
+            <View>
+              <View collapsable={false}>
                 <View>
                   <View style={styles.inner}>
-                    <Text>B：中间一层 collapsable=false</Text>
+                    <Text>B：中间一层 collapsable=false 1111</Text>
                   </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
+        </>
+      );
+    }
 
-        {/* 区 C：不可打平 — 有 onLayout，该 View 会保留 */}
-        <Text style={styles.regionLabel}>C. 不可打平（带 onLayout）</Text>
-        <View style={styles.block}>
-          <View>
-            <View onLayout={() => {}}>
-              <View>
-                <View style={styles.inner}>
-                  <Text>C：某一层有 onLayout</Text>
+    if (ACTIVE_REGION === 'C') {
+      return (
+        <>
+          {/* 区 C：不可打平 — 有 onLayout，该 View 会保留 */}
+          <View style={styles.block}>
+            <View>
+              <View onLayout={() => {}}>
+                <View>
+                  <View style={styles.inner}>
+                    <Text>C：某一层有 onLayout</Text>
+                  </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
+        </>
+      );
+    }
 
+    return (
+      <>
         {/* 区 D：可打平 — 只有样式无事件，同 A */}
-        <Text style={styles.regionLabel}>D. 可打平（3 层空 View + 样式）</Text>
         <View style={styles.block}>
           <View>
             <View>
@@ -131,10 +141,14 @@ function AppContent() {
             </View>
           </View>
         </View>
+      </>
+    );
+  };
 
-        <Text style={styles.footer}>
-          对照 FABRIC_DEBUG_LEARNING.md：A/D 原生节点少，B/C 多
-        </Text>
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
+        {renderRegion()}
       </ScrollView>
     </View>
   );
